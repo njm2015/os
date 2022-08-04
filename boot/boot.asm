@@ -19,6 +19,8 @@ mov [BOOT_DRIVE], dl        ; system stores boot disk in dl
 mov bp, 0x9000              ; }
 mov sp, bp                  ; }= set up stack
 
+
+
 call cls					; clear the screen
 call load_kernel            ; load kernel from disk
 

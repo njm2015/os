@@ -8,7 +8,7 @@ CFLAGS = -c -fno-pie -m32 -ffreestanding $(INCLUDE_DIRS)
 all: os-image
 
 run: clean all
-	kvm os-image
+	kvm -drive file=os-image,format=raw -cpu host
 
 os-image: kernel.o boot/boot.o
 	ld -o $@ -m elf_i386 -T os.lds $^
