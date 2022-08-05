@@ -12,11 +12,11 @@ global boot
 
 boot:
 
-KERNEL_OFFSET equ 0x8000
+KERNEL_OFFSET equ 0x1000
 
 mov [BOOT_DRIVE], dl        ; system stores boot disk in dl
 
-mov bp, 0x9000              ; }
+mov bp, 0x90000             ; }
 mov sp, bp                  ; }= set up stack
 
 

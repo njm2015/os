@@ -1,7 +1,7 @@
-C_SOURCES = $(wildcard kernel/*.c drivers/*.c)
-HEADERS = $(wildcard kernel/*.h drivers/*.h)
+C_SOURCES = $(wildcard kernel/*.c drivers/*.c utils/*.c)
+HEADERS = $(wildcard kernel/*.h drivers/*.h utils/*.h)
 SUBDIRS = $(shell find . -mindepth 1 -maxdepth 1 -type d)
-OBJ = ${C_SOURCES:.c=.o}
+OBJ = kernel/kernel_entry.o ${C_SOURCES:.c=.o}
 INCLUDE_DIRS = $(foreach d, $(SUBDIRS), -I$(subst ./,,$d))
 CFLAGS = -c -fno-pie -m32 -ffreestanding $(INCLUDE_DIRS)
 
@@ -25,4 +25,4 @@ kernel.o: ${OBJ}
 clean :
 	rm -fr os-image kernel.o
 	rm -fr boot/*.o
-	rm -fr kernel/*.o drivers/*.o
+	rm -fr kernel/*.o drivers/*.o utils/*.o

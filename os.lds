@@ -1,6 +1,6 @@
 ENTRY(boot)
-/* OUTPUT_FORMAT("binary") */
-OUTPUT_FORMAT("elf32-i386")
+OUTPUT_FORMAT("binary")
+/* OUTPUT_FORMAT("elf32-i386") */
 
 SECTIONS {
 	. = 0x7c00;
@@ -11,7 +11,7 @@ SECTIONS {
 
 	}
 
-  	. = 0x8000;
+  	. = 0x1000;
   	.kernel : AT(0x7e00) {
     
 		*(.text)
