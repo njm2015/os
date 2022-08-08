@@ -16,17 +16,22 @@ switch_to_pm:
 
     jmp CODE_SEG:init_pm
 
+
+
 [BITS 32]
 
 init_pm:
 
-    mov ax, DATA_SEG            ; }
-    mov ds, ax                  ; }
-    mov ss, ax                  ; }
-    mov es, ax                  ; }= update segment registers for 32 bit mode
-    mov fs, ax                  ; }`
-    mov gs, ax                  ; }
+    mov bx, DATA_SEG            ; }
+    mov ds, bx                  ; }
+    mov ss, bx                  ; }
+    mov es, bx                  ; }= update segment registers for 32 bit mode
+    mov fs, bx                  ; }`
+    mov gs, bx                  ; }
 
+    ;and ax, 0xfffe
+    ;mov cr0, eax
+    
     ;mov dword [0xb8000], 0x07690748
     ;hlt
 

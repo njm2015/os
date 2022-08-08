@@ -1,13 +1,10 @@
+extern int ap_counter;
+extern int counter;
+
 #include "io.h"
-#include "mp.h"
 
 void main() {
 
-    if (check_lapic())
-        puts("APIC enabled...");
-    else
-        puts("APIC disabled...");
-
-    putih(read_apic_msr());
+    putc_adv_cur(ap_counter + 0x30);
 
 }
