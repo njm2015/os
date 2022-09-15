@@ -1,0 +1,33 @@
+ENTRY(boot)
+OUTPUT_FORMAT("binary")
+/*OUTPUT_FORMAT("elf32-i386")*/
+
+INPUT(
+	boot/boot.o
+	kernel/kernel.o
+)
+
+SECTIONS {
+    . = 0x7c00;
+    .boot : {
+
+        *(.data)
+        *(.boot)
+
+    }
+
+    . = 0x1000;
+    .kernel : AT(0x7e00) {
+
+        *(.text)
+   		. = ALIGN(0x200);    	
+
+    }
+
+	kernel_sectors = (SIZEOF(.kernel) + 511) / 512;
+
+	/DISCARD/ : {
+		*(.eh_frame)
+	}
+
+}
