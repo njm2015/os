@@ -1,7 +1,7 @@
 ;[org 0x7c00]
 [bits 16] 
 
-KERNEL_SECTORS equ 1
+extern KERNEL_SECTORS
 KERNEL_ADDR equ 0x1000
 
 section .boot

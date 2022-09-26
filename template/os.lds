@@ -20,14 +20,16 @@ SECTIONS {
     .kernel : AT(0x7e00) {
 
         *(.text)
-   		. = ALIGN(0x200);    	
+		*(.rodata)
+		. = ALIGN(1024);
 
     }
 
-	kernel_sectors = (SIZEOF(.kernel) + 511) / 512;
+	KERNEL_SECTORS = (SIZEOF(.kernel) + 511) / 512;
 
 	/DISCARD/ : {
 		*(.eh_frame)
+		*(.comment)
 	}
 
 }

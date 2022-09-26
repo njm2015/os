@@ -34,45 +34,45 @@
 00000000000i[      ]   Sound support: SB16 ES1370
 00000000000i[      ]   USB support: UHCI OHCI EHCI xHCI
 00000000000i[      ]   VGA extension support: vbe cirrus voodoo
-00000000000i[MEM0  ] allocated memory at 0x7f0e2c733010. after alignment, vector=0x7f0e2c734000
+00000000000i[MEM0  ] allocated memory at 0x7f03c0c14010. after alignment, vector=0x7f03c0c15000
 00000000000i[MEM0  ] 512.00MB
 00000000000i[MEM0  ] mem block size = 0x00020000, blocks=4096
 00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('/usr/share/bochs/BIOS-bochs-latest')
-00000000000i[      ] lt_dlhandle is 0x5610d2f8a3a0
+00000000000i[      ] lt_dlhandle is 0x55bb1f94e3c0
 00000000000i[PLUGIN] loaded plugin libbx_hdimage.so
-00000000000i[      ] lt_dlhandle is 0x5610d371ca40
+00000000000i[      ] lt_dlhandle is 0x55bb200e0a60
 00000000000i[PLUGIN] loaded plugin libbx_soundalsa.so
 00000000000i[WAVOUT] ALSA: opened default PCM output device
 00000000000i[WAVOUT] changed sample rate to 44101
-00000000000i[      ] lt_dlhandle is 0x5610d3737060
+00000000000i[      ] lt_dlhandle is 0x55bb200fb080
 00000000000i[PLUGIN] loaded plugin libbx_pci.so
-00000000000i[      ] lt_dlhandle is 0x5610d371d5f0
+00000000000i[      ] lt_dlhandle is 0x55bb200e1610
 00000000000i[PLUGIN] loaded plugin libbx_pci2isa.so
-00000000000i[      ] lt_dlhandle is 0x5610d3744bc0
+00000000000i[      ] lt_dlhandle is 0x55bb20108be0
 00000000000i[PLUGIN] loaded plugin libbx_usb_uhci.so
-00000000000i[      ] lt_dlhandle is 0x5610d3747280
+00000000000i[      ] lt_dlhandle is 0x55bb2010b2a0
 00000000000i[PLUGIN] loaded plugin libbx_acpi.so
-00000000000i[      ] lt_dlhandle is 0x5610d3747ab0
+00000000000i[      ] lt_dlhandle is 0x55bb2010bad0
 00000000000i[PLUGIN] loaded plugin libbx_hpet.so
-00000000000i[      ] lt_dlhandle is 0x5610d3748920
+00000000000i[      ] lt_dlhandle is 0x55bb2010c940
 00000000000i[PLUGIN] loaded plugin libbx_cmos.so
-00000000000i[      ] lt_dlhandle is 0x5610d3749280
+00000000000i[      ] lt_dlhandle is 0x55bb2010d2a0
 00000000000i[PLUGIN] loaded plugin libbx_dma.so
-00000000000i[      ] lt_dlhandle is 0x5610d3749cd0
+00000000000i[      ] lt_dlhandle is 0x55bb2010dcf0
 00000000000i[PLUGIN] loaded plugin libbx_pic.so
-00000000000i[      ] lt_dlhandle is 0x5610d374a530
+00000000000i[      ] lt_dlhandle is 0x55bb2010e550
 00000000000i[PLUGIN] loaded plugin libbx_pit.so
-00000000000i[      ] lt_dlhandle is 0x5610d374ad70
+00000000000i[      ] lt_dlhandle is 0x55bb2010ef50
 00000000000i[PLUGIN] loaded plugin libbx_vga.so
-00000000000i[      ] lt_dlhandle is 0x5610d374b5d0
+00000000000i[      ] lt_dlhandle is 0x55bb2010f7b0
 00000000000i[PLUGIN] loaded plugin libbx_floppy.so
-00000000000i[      ] lt_dlhandle is 0x5610d374c180
+00000000000i[      ] lt_dlhandle is 0x55bb20110360
 00000000000i[PLUGIN] loaded plugin libbx_ioapic.so
-00000000000i[      ] lt_dlhandle is 0x5610d374c980
+00000000000i[      ] lt_dlhandle is 0x55bb20110b60
 00000000000i[PLUGIN] loaded plugin libbx_keyboard.so
-00000000000i[      ] lt_dlhandle is 0x5610d374d150
+00000000000i[      ] lt_dlhandle is 0x55bb20111330
 00000000000i[PLUGIN] loaded plugin libbx_harddrv.so
-00000000000i[      ] lt_dlhandle is 0x5610d374f3b0
+00000000000i[      ] lt_dlhandle is 0x55bb20113590
 00000000000i[PLUGIN] loaded plugin libbx_pci_ide.so
 00000000000i[PLUGIN] init_dev of 'pci' plugin device by virtual method
 00000000000i[DEV   ] i440FX PMC present at device 0, function 0
@@ -80,7 +80,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using local time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Thu Sep 15 10:16:45 2022 (time0=1663255005)
+00000000000i[CMOS  ] Setting initial clock to: Sun Sep 25 19:49:47 2022 (time0=1664153387)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -112,7 +112,7 @@
 00000000000i[KBD   ] will paste characters every 400 keyboard ticks
 00000000000i[PLUGIN] init_dev of 'harddrv' plugin device by virtual method
 00000000000i[HD    ] HD on ata0-0: 'boot_image', 'flat' mode
-00000000000i[IMG   ] hd_size: 1024
+00000000000i[IMG   ] hd_size: 2560
 00000000000i[HD    ] ata0-0: autodetect geometry: CHS=0/16/63 (sector size=512)
 00000000000i[HD    ] ata0-0: extra data outside of CHS address range
 00000000000i[HD    ] translation on ata0-0 set to 'none'
@@ -290,7 +290,7 @@
 00001613994i[CPU0  ] Enter to System Management Mode
 00001613994i[CPU0  ] enter_system_management_mode: temporary disable VMX while in SMM mode
 00001614004i[CPU0  ] RSM: Resuming from System Management Mode
-00001624660i[XGUI  ] charmap update. Font is 9 x 16
+00001624580i[XGUI  ] charmap update. Font is 9 x 16
 00001843599d[PCI   ] write PCI register 0x72 value 0x0A (len=1)
 00001843599i[PCI   ] setting SMRAM control register to 0x0a
 00001855161d[PCI   ] read  PCI register 0x00 value 0x8086 (len=2)
@@ -310,6 +310,6 @@
 00002009743i[BXVGA ] VBE known Display Interface b0c5
 00002012386i[VBIOS ] VBE Bios $Id: vbe.c 228 2020-01-02 23:09:02Z vruppert $
 00002361787i[BIOS  ] ata0-0: PCHS=0/16/63 translation=none LCHS=0/16/63
-00003183470i[XGUI  ] charmap update. Font is 9 x 16
+00003316030i[XGUI  ] charmap update. Font is 9 x 16
 00005808703i[BIOS  ] IDE time out
 00036159186i[BIOS  ] Booting from 0000:7c00
