@@ -1,6 +1,6 @@
 [bits 16]
 
-extern kernel_entry
+;extern kernel_entry
 
 switch_to_pm:
 

@@ -11,7 +11,6 @@ SECTIONS {
     . = 0x7c00;
     .boot : {
 
-        *(.data)
         *(.boot)
 
     }

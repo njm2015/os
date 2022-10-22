@@ -25,3 +25,19 @@ void outw(unsigned short port, unsigned short data) {
 	__asm("out %%ax, %%dx" : : "a" (data), "d" (port));
 
 }
+
+int read_addr(unsigned int addr) {
+
+	int res;
+	__asm__(
+		"movl %1, %%esi			\n "
+		"movl (%%esi), %%eax	\n "
+		"movl %%eax, %0			\n "
+		: "=r" (res)
+		: "r" (addr)
+		: "%eax", "%esi"	
+	);
+
+	return res;
+
+}

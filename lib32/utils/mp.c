@@ -16,6 +16,38 @@ bool check_lapic() {
 
 }
 
+bool check_x2apic() {
+
+	int res;
+	__asm__(
+		"movl $0x1, %%eax	\n "
+		"cpuid				\n "
+		"movl %%ecx, %0		\n "
+		: "=r" (res)
+		:
+		: "%eax", "%ebx", "%ecx", "%edx"
+	);
+
+	return (res >> 21) & 0x1;
+
+}
+
+bool is_bsp() {
+
+	int res;
+	__asm__(
+		"movl %1, %%ecx	\n "
+		"rdmsr				\n "
+		"movl %%eax, %0		\n "
+		: "=r" (res)
+		: "r" (IA32_APIC_BASE_MSR)
+		: "%eax", "%ecx"
+	);
+
+	return (res >> 8) & 0x1;
+
+}
+
 int read_apic_id() {
 
     int res;
@@ -82,6 +114,36 @@ int read_lapic_id() {
 
 }
 
+int read_lapic_svr() {
+
+	int res;
+	__asm__(
+		"movl %1, %%esi			\n "
+		"movl (%%esi), %%eax	\n "
+		"movl %%eax, %0			\n "
+		: "=r" (res)
+		: "r" (IA32_APIC_SVR)
+		: "%eax", "%esi"
+	);
+
+	return res;
+
+}
+
+void enable_lapic() {
+
+	__asm__(
+		"movl %0, %%esi			\n "
+		"movl (%%esi), %%eax	\n "
+		"or %1, %%eax			\n "
+		"movl %%eax, (%%esi)	\n "
+		:
+		: "r" (IA32_APIC_SVR), "r" (IA32_APIC_ENABLE)
+		: "%eax", "%esi"
+	);
+
+}
+
 void set_apic_lvt3(int new_vec) {
 
     __asm__(
@@ -131,7 +193,7 @@ void send_init_sipi_ipi(char exec_vec) {
 
     __asm__(
         "movl %0, %%esi         \n "
-        "movl $0xc4604, %%eax   \n "
+        "movl $0xc4601, %%eax   \n "
         "movl %%eax, (%%esi)    \n "
         :
         : "r" (IA32_APIC_ICR_LOW)
@@ -142,7 +204,7 @@ void send_init_sipi_ipi(char exec_vec) {
 
     __asm__(
         "movl %0, %%esi         \n "
-        "movl $0xc4604, %%eax   \n "
+        "movl $0xc4601, %%eax   \n "
         "movl %%eax, (%%esi)    \n "
         :
         : "r" (IA32_APIC_ICR_LOW)

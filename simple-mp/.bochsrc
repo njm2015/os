@@ -183,7 +183,7 @@ display_library: x, options="gui_debug"
 #  2.2.6 2.6Ghz Intel Core 2 Duo with WinXP/g++ 3.4       21 to 25 Mips
 #  2.2.6 2.1Ghz Athlon XP with Linux 2.6/g++ 3.4          12 to 15 Mips
 #=======================================================================
-cpu: count=1, ips=10000000, reset_on_triple_fault=1
+cpu: count=4, ips=10000000, reset_on_triple_fault=1
 cpu: cpuid_limit_winnt=0
 
 #=======================================================================
@@ -623,7 +623,7 @@ private_colormap: enabled=0
 # The optional parameter 'write_protected' can be used to control the media
 # write protect switch. By default it is turned off.
 #=======================================================================
-floppya: 1_44=boot_image, status=inserted
+floppya: 1_44=os_image, status=inserted
 #floppya: image=../1.44, status=inserted
 #floppya: 1_44=/dev/fd0H1440, status=inserted
 #floppya: 1_2=../1_2, status=inserted
@@ -711,7 +711,7 @@ ata3: enabled=0, ioaddr1=0x168, ioaddr2=0x360, irq=9
 #   ata3-master: type=disk, mode=flat, path=483M.sample, cylinders=1024, heads=15, spt=63
 #   ata3-slave:  type=cdrom, path=iso.sample, status=inserted
 #=======================================================================
-ata0-master: type=disk, mode=flat, path="boot_image"
+ata0-master: type=disk, mode=flat, path="os_image"
 #ata0-master: type=disk, mode=flat, path="30M.sample", cylinders=615, heads=6, spt=17
 #ata0-master: type=disk, mode=flat, path="c.img", cylinders=0 # autodetect
 #ata0-slave: type=disk, mode=vvfat, path=/bochs/images/vvfat, journal=vvfat.redolog

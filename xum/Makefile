@@ -18,7 +18,7 @@ run: clean $(TARGET)
 
 .PHONY: elf
 elf: ${TARGET_OBJS}
-	ld -o debug/$@ -m elf_i386 -T ./scripts/elf.lds
+	ld -o debug/$@ -m elf_i386 -T ./scripts/elf.lds && objdump -M intel -d ./debug/elf > ./debug/tmp
 
 $(TARGET): ${TARGET_OBJS}
 	ld -o bochs/$@ -m elf_i386 -T ./scripts/os.lds
