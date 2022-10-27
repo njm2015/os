@@ -19,6 +19,19 @@ lock16:
 	
 	ret
 
+proclock:
+.spin_proclock:
+	xor ax, ax
+	mov cx, 1
+;	mov si, word [proc_lock]
+	lock cmpxchg word [proc_lock], cx
+	jz .done_proclock
+	pause
+	jmp .spin_proclock
+
+.done_proclock:
+	jmp proclock_done
+
 unlock16:
 	push bp
 	mov bp, sp

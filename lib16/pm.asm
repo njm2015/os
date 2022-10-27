@@ -25,7 +25,7 @@ init_pm:
 	mov fs, bx
 	mov gs, bx
 
-	mov ebp, 0x9000
-	mov esp, ebp
+	;mov ebp, 0x9000
+	;mov esp, ebp
 
 	call kernel_entry

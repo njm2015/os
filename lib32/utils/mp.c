@@ -185,11 +185,11 @@ void send_init_sipi_ipi(char exec_vec) {
         : "%eax", "%esi"
     );
 
-    *((char*) 0xb8020) = 'z';
+    //*((char*) 0xb8020) = 'z';
 
     us_wait(WAIT_10_ms);
 
-    *((char*) 0xb8022) = 'y';
+    //*((char*) 0xb8022) = 'y';
 
     __asm__(
         "movl %0, %%esi         \n "

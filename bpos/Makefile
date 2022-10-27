@@ -13,8 +13,11 @@ TARGET=boot_image
 
 all: $(TARGET)
 
+rund: clean $(TARGET)
+	cd bochs && bochs -rc abochs.cmd -f .bochsrc_debug -q
+
 run: clean $(TARGET)
-	cd bochs && bochs -rc bochs.cmd
+	cd bochs && bochs -rc abochs.cmd -f .bochsrc_nodebug -q
 
 .PHONY: elf
 elf: ${TARGET_OBJS}
