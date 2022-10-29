@@ -5,22 +5,26 @@ section .boot
 
 boot:
 
-	mov ax, cs
-	mov ah, 0x0e
-	add al, 0x30
-	int 0x10
+    xor ax, ax
+    mov ds, ax
+    mov es, ax
+    mov bx, 0x9000
 
-	;mov bp, 0x2000
-	;mov sp, bp
+    cli
+    mov ss, bx
+    mov sp, ax 
+    sti
 
-	;call cls
-	;mov bx, test_string
-	;call print_string
-	jmp $
+    cld
+   
+    mov dx, test_string
+    call print_string
+    
+    jmp $
 
-%include "display.asm"
 %include "print_string.asm"
 
+pre_string db "abcdefg"
 test_string db "HELP ME SOS",0
 
 times 510-($-$$) db 0				; pad for 512 bytes
