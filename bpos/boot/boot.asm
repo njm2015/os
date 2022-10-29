@@ -9,6 +9,10 @@ section .boot
 
 global boot
 boot:
+
+	mov ax, 0x0;
+	mov cs, ax;
+
 	call cls
 	mov bx, check_disk_string
 	call print_string

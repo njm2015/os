@@ -4,14 +4,18 @@
 section .boot
 
 boot:
-	mov ax, 0
-	mov cs, ax
-	mov bp, 0x2000
-	mov sp, bp
 
-	call cls
-	mov bx, test_string
-	call print_string
+	mov ax, cs
+	mov ah, 0x0e
+	add al, 0x30
+	int 0x10
+
+	;mov bp, 0x2000
+	;mov sp, bp
+
+	;call cls
+	;mov bx, test_string
+	;call print_string
 	jmp $
 
 %include "display.asm"
