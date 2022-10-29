@@ -36,6 +36,7 @@ kernel/kernel.o : $(KERNEL_OBJS) $(LIB32_OBJ)
 	nasm $< -f elf -i$(LIB16) -o $@
 
 clean:
+	rm -f bochs/bochsout.txt
 	rm -f bochs/$(TARGET)
 	rm -f **/*.o
 	rm -f **/*.lock
