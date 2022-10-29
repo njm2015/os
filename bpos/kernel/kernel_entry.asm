@@ -9,6 +9,9 @@ global print_lock
 
 pre_kernel:
 
+;mov bx, lock_attempt
+;call print_string
+
 times 5 nop
 ;push proc_lock
 jmp proclock
@@ -21,6 +24,7 @@ call switch_to_pm
 
 %include "lock.asm"
 %include "pm.asm"
+%include "print_string.asm"
 
 [bits 32]
 
@@ -43,3 +47,4 @@ kernel_entry:
 proc_lock dw 0x0
 proc_cnt db 0x0
 print_lock db 0x0
+lock_attempt db "Attempting to get proc_lock...",0

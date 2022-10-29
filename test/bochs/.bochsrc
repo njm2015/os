@@ -90,7 +90,7 @@
 #display_library: vncsrv
 #display_library: win32
 #display_library: wx
-#display_library: x, options="gui_debug"
+display_library: x, options="gui_debug"
 
 #=======================================================================
 # CPU:
@@ -183,7 +183,7 @@
 #  2.2.6 2.6Ghz Intel Core 2 Duo with WinXP/g++ 3.4       21 to 25 Mips
 #  2.2.6 2.1Ghz Athlon XP with Linux 2.6/g++ 3.4          12 to 15 Mips
 #=======================================================================
-cpu: count=8, ips=10000000, reset_on_triple_fault=1
+cpu: count=1, ips=10000000, reset_on_triple_fault=1
 cpu: cpuid_limit_winnt=0
 
 #=======================================================================
@@ -799,7 +799,7 @@ log: bochsout.txt
 # cause bochs to become unstable.  The panic is a "graceful exit," so
 # if you disable it you may get a spectacular disaster instead.
 #=======================================================================
-panic: action=report
+panic: action=ask
 error: action=report
 info: action=report
 debug: action=ignore, pci=report # report BX_DEBUG from module 'pci'
