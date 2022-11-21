@@ -5,6 +5,10 @@ section .boot
 
 boot:
 
+	in al, 0x92
+	or al, 2
+	out 0x92, al
+
     xor ax, ax
     mov ds, ax
     mov es, ax

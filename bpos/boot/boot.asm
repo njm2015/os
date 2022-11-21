@@ -10,15 +10,21 @@ section .boot
 global boot
 boot:
 
-	mov ax, 0x0;
-	mov cs, ax;
+	xor ax, ax
+	mov ds, ax
+	mov es, ax
+	mov bx, 0x9000
+
+	cli
+	mov ss, bx
+	mov sp, ax
+	sti
+
+	cld
 
 	call cls
-	mov bx, check_disk_string
-	call print_string
 	mov [DRIVE_NUM], dl
 	call read_kernel_from_disk		; load correct number of sectors for the kernel
-	;call cls						; clear screen
 	call pre_kernel					; goto code ap_init code (never return)
  
 %include "disk.asm"
