@@ -104,6 +104,6 @@ size_t test() {
 void kernel_main(void) {
 	terminal_initialize();
 	size_t c = test();
-    terminal_putchar((c % 26) + 0x61);
-	//terminal_writestring("Hello, kernel World!\n");
+    //terminal_putchar((c % 26) + 0x61);
+    terminal_writestring("Hello, kernel World!\n");
 }
