@@ -1,41 +1,42 @@
 MBALIGN equ 1 << 0
 MEMINFO equ 1 << 1
-MBVIDEO equ 1 << 2
-FLAGS equ MBALIGN | MEMINFO | MBVIDEO
-MAGIC equ 0x1BADB002
+FRAMEBUFFER equ 1 << 2
+FLAGS equ MBALIGN | MEMINFO | FRAMEBUFFER
+MAGIC    equ  0x1BADB002
 CHECKSUM equ -(MAGIC + FLAGS)
 
 section .multiboot
 align 4
-	dd MAGIC
-	dd FLAGS
-	dd CHECKSUM
-    dd 0 ; header_addr
-    dd 0 ; load_addr
-    dd 0 ; load_end_addr
-    dd 0 ; bss_end_addr
-    dd 0 ; entry_addr
-    dd 0 ; mode_type
-    dd 1024 ; video width
-    dd 768  ; video height
-    dd 16   ; video depth
+        dd MAGIC
+        dd FLAGS
+        dd CHECKSUM
+        dd 0,0,0,0,0
+        dd 0
+        dd 760
+        dd 1024
+        dd 16
 
 section .bss
 align 16
-stack_bottom:
-resb 16384 ; 16 KB
-stack_top:
+        stack_bottom:
+        resb 16384          ; 16 KB stack.
+        stack_top:
 
 section .text
+extern kernel_main
 global _start:function (_start.end - _start)
 _start:
-	mov esp, stack_top
-	
-	extern kernel_main
-	call kernel_main
+        mov esp, stack_top  ; small kernel stack
+       
+        push ecx
+        push edx
+        push ebx            ; Multiboot Info Struct Address.
+        push eax            ; Multiboot MAGIC number.
 
-	cli
-.hang:
-	hlt
-	jmp .hang
+        call kernel_main    ; call kernel C entry point
+
+        cli
+.hang:  hlt
+        jmp .hang
 .end:
+times 1000 db 0
