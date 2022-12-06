@@ -6,10 +6,14 @@ all: noOs.iso
 
 .PHONY: run
 run:
+	qemu-system-i386 -cdrom noOs.iso
+
+.PHONY: rund
+rund:
 	qemu-system-i386 -cdrom noOs.iso -S -s
 
 noOs.iso: noOs.bin grub.cfg
-	bash -c "cp noOs.bin isodir/boot/grub"
+	bash -c "cp noOs.bin isodir/boot"
 	bash -c "cp grub.cfg isodir/boot/grub/grub.cfg"
 	bash -c "grub-mkrescue -o $@ isodir"
 

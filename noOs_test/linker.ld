@@ -1,29 +1,33 @@
 ENTRY(_start)
+OUTPUT_FORMAT(elf32-i386)
+OUTPUT_ARCH(i386:i386)
 
 SECTIONS
 {
 	
 	. = 1M;
 
-	.text BLOCK(4K) : ALIGN(4K)
-	{
-		*(.multiboot)
-		*(.text)
-	}
 
-	.rodata BLOCK(4K) : ALIGN(4K)
+	.text : 
 	{
-		*(.rodata)
+        . = ALIGN(8);
+        KEEP(*(.multiboot))
+        *(.text)
+        *(.rodata)
 	}
-
-	.data BLOCK(4K) : ALIGN(4K)
+    
+    . = ALIGN(4K);
+	.data :
 	{
 		*(.data)
 	}
-
-	.bss BLOCK(4K) : ALIGN(4K)
+    
+    . = ALIGN(4K);
+	.bss :
 	{
 		*(COMMON)
 		*(.bss)
 	}
+
+    /DISCARD/ : { *(.fini_array*) *(.comment) }
 }
