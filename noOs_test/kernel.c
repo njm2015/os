@@ -14,7 +14,7 @@ void kernel_main(uint32_t magic_number, uint32_t mb_addr) {
 
     for (size_t i = 0; i < HEIGHT; ++i) {
         for (size_t j = 0; j < WIDTH; ++j) {
-            *(fb + (i * WIDTH) + j) = 0xffff;
+            *(fb + ((i * WIDTH) + j) * 2) = 0xffff;
         }
     }
 

@@ -12,6 +12,10 @@ run:
 rund:
 	qemu-system-i386 -cdrom noOs.iso -S -s
 
+.PHONY: run64
+run64:
+	qemu-system-x86_64 -bios /usr/share/ovmf/OVMF.fd -cdrom noOs.iso
+
 noOs.iso: noOs.bin grub.cfg
 	bash -c "cp noOs.bin isodir/boot"
 	bash -c "cp grub.cfg isodir/boot/grub/grub.cfg"
