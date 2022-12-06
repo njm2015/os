@@ -4,8 +4,8 @@
 
 #include "multiboot.h"
 
-#define WIDTH 1024
-#define HEIGHT 768
+#define WIDTH 1920
+#define HEIGHT 1080
 
 void kernel_main(uint32_t magic_number, uint32_t mb_addr) {
 

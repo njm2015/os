@@ -14,14 +14,13 @@ align 4
         dd CHECKSUM
         dd 0,0,0,0,0
         dd 0
-        dd 1024
-        dd 768
+        dd 1920
+        dd 1080
         dd 16
 
 section .text
 bits 32
 global _start:function (_start.end - _start)
-;global _start
 _start:
         mov esp, stack_top  ; small kernel stack
        
