@@ -22,10 +22,10 @@ noOs.iso: noOs.bin grub.cfg
 	bash -c "grub-mkrescue -o $@ isodir"
 
 noOs.bin: linker.ld $(OBJS)
-	i686-elf-gcc -T $< -o $@ -g -ffreestanding -nostdlib $(OBJS) -lgcc 
+	i686-elf-gcc -T $< -o $@ -g -ggdb -ffreestanding -nostdlib $(OBJS) -lgcc 
 
 kernel.o: kernel.c
-	i686-elf-gcc -c $< -o $@ -g -std=gnu99 -ffreestanding -Wall -Wextra
+	i686-elf-gcc -c $< -o $@ -g -ggdb -std=gnu99 -ffreestanding -Wall -Wextra
 
 boot.o: boot.asm
 	nasm -g -F dwarf -felf32 $< -o $@

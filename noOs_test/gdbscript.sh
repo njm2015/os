@@ -1,7 +1,5 @@
 gdb noOs.bin \
 -ex 'target remote localhost:1234' \
--ex 'layout asm' \
+-ex 'layout src' \
 -ex 'layout regs' \
--ex 'break _start' \
--ex 'break kernel_main' \
--ex 'continue'
+-ex 'break putc_color' \
